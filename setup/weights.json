@@ -1,0 +1,46 @@
+{
+ "_note": "HF 공개 가중치 (토큰 없음) 를 고정 리비전으로 — DepthVLM-4B 만 (이 실험은 다른 모델을 쓰지 않는다). 파일마다 크기 + sha256 (LFS) 또는 git blob sha1. setup/get_weights.py 가 읽는다.",
+ "depthvlm": {
+  "repo": "JonnyYu828/DepthVLM-4B",
+  "revision": "2b2d02fcfe0c89c8aa7d541055e5a078930077c9",
+  "license": "Apache-2.0",
+  "files": {
+   ".gitattributes": {
+    "size": 1570,
+    "git_sha1": "52373fe24473b1aa44333d318f578ae6bf04b49b"
+   },
+   "README.md": {
+    "size": 4176,
+    "git_sha1": "7d86c782d8a36aec20a1f21df0176b70cb7ccfe4"
+   },
+   "chat_template.jinja": {
+    "size": 5292,
+    "git_sha1": "124386803f142761528f710e77ae483f5f8c4fc4"
+   },
+   "config.json": {
+    "size": 1732,
+    "git_sha1": "99ace056150f44b2b6682351622bfb767236e4fc"
+   },
+   "generation_config.json": {
+    "size": 227,
+    "git_sha1": "7e9643859dd2609fd9c926969191eec5d6aa6fc9"
+   },
+   "model.safetensors": {
+    "size": 9723930890,
+    "sha256": "fa4d66ea78f8fc49bf31aa8c7e7aa91da3f71e328885d6c3a62a9fd8ca97585e"
+   },
+   "processor_config.json": {
+    "size": 1300,
+    "git_sha1": "7ad6acdf4203f22b7b990e36ccc3a1fe38563d5e"
+   },
+   "tokenizer.json": {
+    "size": 11422650,
+    "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+   },
+   "tokenizer_config.json": {
+    "size": 705,
+    "git_sha1": "6577e86ca277ad0367551e280ba1d58ad4d42c52"
+   }
+  }
+ }
+}
