@@ -15,6 +15,7 @@
 import argparse
 import json
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -44,6 +45,15 @@ def pe():
     return PE
 
 
+def here(p):
+    """(H200, 11-20) SUN RGB-D · KITTI · ETH3D 평가 목록 (json) 에는 만든 PC 의 절대 경로 (/home/<이름>/…) 가 적혀 있다
+    → 지금 HOME 아래로 바꿔 읽는다 (묶음은 홈 기준 경로로 풀린다). 만든 PC 에서는 그대로."""
+    h = str(Path.home())
+    if not isinstance(p, str) or p.startswith(h + "/"):
+        return p
+    return re.sub(r"^/home/[^/]+/", lambda _: h + "/", p)
+
+
 def recs(ds, limit=0):
     """[(id, 사진 경로, fx, W, H, 정답 기록)] — paper_eval.score 가 쓰는 것과 같은 사진 · 정답 짝."""
     PE = pe()
@@ -65,6 +75,7 @@ def recs(ds, limit=0):
             gt = [bench[p.replace(PE.BENCH + "/", "")] for _, p, _, _, _ in base]
         assert len(gt) == len(base), (ds, len(gt), len(base))
         out = [(rid, path, k[0], W, H, g) for (rid, path, k, W, H), g in zip(base, gt)]
+    out = [(rid, here(path), fx, W, H, here(g)) for rid, path, fx, W, H, g in out]
     return out[:limit] if limit else out
 
 
